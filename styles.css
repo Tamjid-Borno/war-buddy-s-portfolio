@@ -1,0 +1,862 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    background-color: #000000; /* Dark purple background */
+    color: #fff; /* White text */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+h1 {
+    margin: 0;
+    background-image: linear-gradient(to right, blue, rgb(241, 4, 241), blue, purple); /* Linear gradient from blue to purple to cyan */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Make text transparent to show the gradient */
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+ul li a:hover {
+    color: #ff00aa; /* Orange hover color */
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff00;
+    margin: 5px 0;
+}
+
+/* Styling for the hero section */
+
+
+/* Styling for the hero section */
+.hero-section {
+    background-color: #000000; /* Black background color */
+    color: #fff; /* White text color */
+    padding: 100px 0; /* Adjust padding as needed */
+    text-align: center; /* Center-align content */
+    height: 79vh; /* Set height to 100% of viewport height */
+    overflow: hidden; /* Hide overflow to prevent scrollbars */
+
+}
+
+/* Styling for the glassmorphic container */
+.glassmorphic-container {
+    background-color: rgba(255, 255, 255, 0.034); /* Glassmorphic background color */
+    border-radius: 12px; /* Border radius for glassmorphic effect */
+    padding: 20px; /* Adjust padding as needed */
+    
+    backdrop-filter: blur(5rem); /* Apply blur effect */
+    width: 97%; /* Set width to 100% of viewport width */
+    height: 96vh; /* Set height to 100% of viewport height */
+    position: absolute;
+    top:0
+}
+
+
+/* Styling for the blurry circle */
+
+
+
+
+.blurry-circle {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(241, 4, 241, 0.863) 30%, rgba(0, 0, 0, 0) 70%);
+    position: relative;
+    top: 30vh; /* Adjust position as needed */
+    right: -75vw;
+    transform: translateX(-50%);
+    z-index:-1;
+    filter: blur(5rem); /* Apply blur effect to the circle */
+    opacity: 0; /* Initially set opacity to 0 */
+    animation: fadeIn 5.5s ease forwards; /* Apply fade-in animation */
+}
+/* Keyframes for the fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start with opacity 0 (fully transparent) */
+    }
+    to {
+        opacity: 1; /* End with opacity 1 (fully visible) */
+    }
+}
+
+/* Styling for the content */
+.content {
+    position: relative;
+    z-index: 1;
+}
+.batman-image {
+    position: relative;
+    bottom: 5vh; /* Adjust position as needed */
+    left: 25vw;
+    transform: translateX(-50%);
+    width: 50%; /* Adjust width as needed */
+    max-width: 50rem; /* Set maximum width */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 1; /* Ensure image is above the background elements */
+   
+    animation: upDown 1s infinite alternate ease-in-out; /* Apply up and down animation */
+}
+
+/* Keyframes for the up and down animation */
+@keyframes upDown {
+    0% {
+        transform: translateY(0); /* Start at original position */
+    }
+    100% {
+        transform: translateY(-5%); /* Move up */
+    }
+}
+.ublurry-circle {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(154, 4, 241, 0.596) 30%, rgba(0, 0, 0, 0) 70%);
+    position: absolute;
+    top: 30%; /* Adjust position as needed */
+    left: -6%;
+    transform: translateX(-50%);
+    filter: blur(10rem); /* Apply blur effect to the circle */
+}
+
+.headline-container {
+    position: relative; /* Position the container absolutely */
+    top: 100%; /* Position from the top */
+    left: 40%; /* Position from the left */
+    transform: translate(-50%, -50%); /* Center the container */
+    text-align: center; /* Center-align text */
+}
+
+.headline {
+    font-size: 1.78rem; /* Adjust font size as needed */
+    font-family: "Kode Mono", monospace;
+    color: #fff; /* White text color */
+    text-align: center; /* Center-align text */
+    margin-bottom: 20px; /* Adjust margin as needed */
+    position: relative; /* Position the headline absolutely */
+    bottom: 150px; /* Position from the top */
+    left: 30%; /* Position from the left */
+    transform: translate(-50%, -50%); /* Center the headline */
+    opacity: 0; /* Initially hidden */
+    animation: slide-in 2.5s ease forwards; /* Apply slide-in animation */
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%); /* Start from the left */
+        opacity: 0; /* Hidden */
+    }
+    100% {
+        transform: translateX(-50%); /* End at the center */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #800080, #0000FF); /* Purple to blue gradient */
+    -webkit-background-clip: text; /* Apply gradient to text */
+    background-clip: text; /* Apply gradient to text */
+    color: transparent; /* Set text color to transparent to show gradient */
+}
+
+
+.paragraph {
+    font-size: 1em; /* Base font size */
+    font-family: "Inconsolata", monospace;
+    color: transparent; /* Set text color to transparent to show gradient */
+    position: relative; /* Position the paragraph relative to its parent */
+    bottom: 150px; /* Adjust the top position as needed */
+    right: 20%;
+    width: 80%; /* Set the paragraph width to a percentage of its parent's width */
+    margin: 0 auto; /* Center the paragraph horizontally */
+    z-index: 1000;
+    /* Animation */
+    animation: upore 2.5s ease forwards; /* Apply slide-in animation */
+    opacity: 0; /* Initially hidden */
+
+    /* Responsive adjustments */
+    max-width: 600px; /* Set a maximum width for larger screens */
+    padding: 0 20px; /* Add padding to the paragraph for better readability */
+}
+
+/* Define keyframes for the slide-in animation */
+@keyframes upore {
+    0% {
+        transform: translateY(100%); /* Start off the screen */
+        opacity: 0; /* Hidden */
+    }
+    100% {
+        transform: translateY(0); /* Slide in to top */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+.gradient {
+    background: linear-gradient(to right, pink,#f803f8, #1818f1, rgb(1, 150, 150)); /* Purple to blue gradient */
+    -webkit-background-clip: text; /* Apply gradient to text */
+    background-clip: text; /* Apply gradient to text */
+    color: transparent; /* Set text color to transparent to show gradient */
+}
+
+.buttons-container {
+    position: relative; /* Position the container relative to its parent */
+    bottom: 80px; /* Adjust the distance from the bottom */
+    left: 30%; /* Position the container horizontally in the center */
+    transform: translateX(-50%); /* Center-align the container */
+}
+
+.primary-button, .secondary-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-left: 10px; /* Adjust left margin between buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: fadeIn 5s ease; /* Apply fade-in animation */
+
+
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start with opacity 0 (fully transparent) */
+    }
+    100% {
+        opacity: 1; /* End with opacity 1 (fully visible) */
+    }
+}
+
+
+.primary-button {
+    background: linear-gradient(to right, #800080, #0000FF); /* Purple to blue gradient */
+    color: #fff; /* White */
+}
+
+.secondary-button {
+    background-color: transparent;
+    color: cyan; /* Set text color to transparent */
+    border: 2px solid;
+    border-image-slice: 1;
+    border-width: 2px;
+    border-image-source: linear-gradient(to right, #800080, #00FFFF); /* Purple to cyan gradient */
+    margin-left: 10px; /* Adjust left margin between buttons */
+    background-clip: text; /* Apply background gradient to text */
+    -webkit-background-clip: text; /* For Safari */
+    
+}
+
+.secondary-button:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+}
+
+.blurred-circle {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(154, 4, 241, 0.678) 30%, rgba(0, 0, 0, 0) 70%);
+    position: absolute;
+    top: -10%; /* Adjust position as needed */
+    left: 40%;
+    transform: translateX(-50%);
+    filter: blur(50px); /* Apply blur effect to the circle */
+    pointer-events: none; /* Ensure that the circle does not interfere with mouse events */
+}
+
+.ablurry-circle {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(154, 4, 241, 0.678) 30%, rgba(0, 0, 0, 0) 70%);
+    position: absolute;
+    top: -10%; /* Adjust position as needed */
+    left: 40%;
+    transform: translateX(-50%);
+    filter: blur(50px); /* Apply blur effect to the circle */
+   
+}
+
+#about {
+    background-color: #000000; /* Black background color */
+    color: #fff; /* White text color */
+    padding: 100px 0; /* Adjust padding as needed */
+    text-align: center; /* Center-align content */
+    height: 100vh; /* Set height to 100% of viewport height */
+    overflow: hidden; /* Hide overflow to prevent scrollbars */
+
+}
+/* Define keyframes for the animation */
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideFromLeftToRight {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* Apply the animation to the element */
+.glassmorphic-profile-card {
+    background-color: rgba(255, 255, 255, 0.034);
+    border-radius: 12px;
+    padding: 20px;
+    backdrop-filter: blur(5rem);
+    height: 500px;
+    width: 100%;
+    max-width: 600px; /* Set a maximum width for better responsiveness */
+    position: relative;
+    top: 5.22rem;
+    left: -50%;
+    margin: 0 auto; /* Center the card horizontally */
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 1.5s ease; /* Add transition for smooth animation */
+    transform: translateX(-100%); /* Initial position outside the viewport */
+}
+
+/* Define animation when the element enters the viewport */
+.glassmorphic-profile-card.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
+.glassmorphic-profile-card img {
+    width: 150px; /* Set the image width as needed */
+    height: 150px; /* Set the image height as needed */
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.content {
+    margin-bottom: 20px;
+    font-family: "Dosis", sans-serif;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+}
+
+.social-button {
+    display: inline-block;
+    padding: 15px; /* Adjust padding for button size */
+    margin: 5px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background-color: transparent;
+    text-decoration: none; /* Remove default underline */
+    color: #0307f7; /* Set text color */
+    transition: transform 0.3s ease; /* Add transition effect */
+}
+
+/* Hover effect for social buttons */
+.social-button:hover {
+    transform: translateY(-5px); /* Move the button upwards on hover */
+}
+
+.social-button i {
+    font-size: 24px; /* Adjust icon size as needed */
+    color: #000; /* Icon color */
+}
+
+ion-icon {
+    font-size: 64px;
+  }
+
+
+
+
+
+
+.xblurry-circle {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(154, 4, 241, 0.596) 30%, rgba(0, 0, 0, 0) 70%);
+    position: relative;
+    top: 30%; /* Adjust position as needed */
+    left: 15%;
+    transform: translateX(-50%);
+    filter: blur(10rem); /* Apply blur effect to the circle */
+}
+
+.yblurry-circle {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(154, 4, 241, 0.596) 30%, rgba(0, 0, 0, 0) 70%);
+    position: relative;
+    top: 30%; /* Adjust position as needed */
+    left: 25%;
+    transform: translateX(-50%);
+    filter: blur(10rem); /* Apply blur effect to the circle */
+}
+
+/* Define gradients */
+.gradient-text-shayan {
+    background: linear-gradient(to right, #be009f, #8a06c7, rgb(55, 0, 255), cyan);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.gradient-text-batman {
+    background: linear-gradient(to right, #df04f3, #0786ee, #03a3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.gradient-text-black-pant {
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.gradient-text-autistic {
+    background: linear-gradient(to right, #00F260, #0575E6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Define font styles */
+.custom-headline {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #faf7f7; /* Default color for headline */
+}
+.custom-paragraph {
+    font-family: Times New Roman, serif;
+    font-size: 16px;
+    color: #fffafa; /* Default color for paragraph */
+}
+
+.uwuglassmorphic-profile-card {
+    background-color: rgba(255, 255, 255, 0.034);
+    border-radius: 12px;
+    padding: 20px;
+    backdrop-filter: blur(5rem);
+    height: 500px;
+    width: 100%;
+    max-width: 600px; /* Set a maximum width for better responsiveness */
+    position: relative;
+    top: -30rem;
+    right: -25%; /* Changed from left to right */
+    margin: 0 auto; /* Center the card horizontally */
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 1.5s ease; /* Add transition for smooth animation */
+    transform: translateX(100%); /* Initial position outside the viewport */
+}
+
+/* Define animation when the element enters the viewport */
+.uwuglassmorphic-profile-card.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Ensure the profile card remains visible when not in the active state */
+#about .uwuglassmorphic-profile-card {
+    opacity: 1;
+}
+
+/* Define animation keyframes for slideFromRightToLeft */
+@keyframes slideFromRightToLeft {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+li{ /*style the li tag*/
+	list-style-type: none;
+	font-family: sans-serif;
+}
+
+.skills{ /*style the text*/
+	width: 500px;
+	margin: 60px auto;
+	color: #fff;
+}
+
+.skills li{ /*set margin of li*/
+	margin: 20px 0;
+}
+
+.bar{ /*style the bar*/
+	background-color: #353b48;
+	display: block;
+	height: 6px;
+    width: 100%;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 3px;
+	overflow: hidden;
+	box-shadow: 0 0 10px #2187e7b3;
+}
+
+.bar span{ /*style the span tag*/
+	height: 2px;
+	float: left;
+	background-color: #2187e7;
+}
+
+
+.html{ /*set skills and animation of html*/
+	width: 80%;
+	animation: html 2s;
+}
+
+.css{ /*set skills and animation of css*/
+	width: 93%;
+	animation: css 2s;
+}
+
+.javascript{ /*set skills and animation of javascript*/
+	width: 50%;
+	animation: javascript 2s;
+}
+
+.jquery{ /*set skills and animation of jquery*/
+	width: 30%;
+	animation: jquery 2s;
+}
+
+@keyframes html{ /*animate html skills*/
+	0%{
+		width: 0%;
+	}
+
+	100%{
+		width: 80%;
+	}
+}
+
+@keyframes css{ /*animate css skills*/
+	0%{
+		width: 0%;
+	}
+
+	100%{
+		width: 93%;
+	}
+}
+
+@keyframes javascript{ /*animate javascript skills*/
+	0%{
+		width: 0%;
+	}
+
+	100%{
+		width: 50%;
+	}
+}
+
+@keyframes jquery{ /*animate jquery skills*/
+	0%{
+		width: 0%;
+	}
+
+	100%{
+		width: 30%;
+	}
+}
+
+
+/* ===( CODE AASHU )=== */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;500;700;800;900;1000&display=swap");
+
+#services {
+    background-color: #000000; /* Black background color */
+    color: #fff; /* White text color */
+    padding: 100px 0; /* Adjust padding as needed */
+    text-align: center; /* Center-align content */
+    height: 150vh; /* Set height to 100% of viewport height */
+    overflow: hidden; /* Hide overflow to prevent scrollbars */
+
+}
+
+.icontainer{
+    padding: 50px 0px;
+    height: 100vh;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .parent{
+    height: 400px;
+    width: 300px;
+    padding: 20px;
+    perspective: 1000px;
+  }
+  
+  .card{
+    padding-top: 100px;
+    transform-style: preserve-3d;
+    background-image: url("https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-position: center center;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+    border-radius: 10px;
+  }
+  
+  .card:hover{
+    background-position: 80% 20%;
+    transform: rotate3d(0.5, 1, 0, 30deg);
+  }
+  
+  .content-box{
+    height: 100%;
+    width: 83.5%;
+    background-color: rgba(0, 0, 0, 0.811);
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: rgba(0, 115, 255, 0.925) 0px 20px 50px -25px;
+    transition: all 0.5s ease-in-out;
+    padding: 50px 25px 25px 25px;
+    transform-style: preserve-3d;
+  }
+  
+  .card-title{
+    color: white;
+    font-size: 25px;
+    font-weight: 900;
+    transition: all 0.5s ease-in-out;
+    transform: translate3d(0px, 0px, 20px);
+  }
+  
+  .card-title:hover {
+    transform: translate3d(0px, 0px, 50px);
+  }
+  
+  .card-content{
+    padding-top: 15px;
+    font-size: 12px;
+    color: rgb(185, 185, 185);
+    transition: all 0.5s ease-in-out;
+    transform: translate3d(0px, 0px, 20px);
+  }
+  
+  .card-content:hover{
+    transform: translate3d(0px, 0px, 50px);
+  }
+  
+  .see-more{
+    display: block;
+    font-weight: 900;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: rgb(0, 136, 255);
+    padding-top: 15px;
+    transition: all 0.5s ease-in-out;
+    transform: translate3d(0px, 0px, 20px);
+  }
+  
+  .see-more:hover{
+    transform: translate3d(0px, 0px, 50px);
+  }
+  
+  .date-box{
+    position: absolute;
+    top: 75px;
+    left: 25px;
+    height: 60px;
+    width: 60px;
+    background-color: black;
+    border-radius: 10px;
+    padding: 0px;
+    box-shadow: rgb(0, 102, 255) 0px 20px 60px 0px, rgb(0, 200, 255) 0px 18px 36px -18px;
+    transform: translate3d(0px, 0px, 50px);
+  }
+  
+  .date-box span{
+    display: block;
+    text-align: center;
+  }
+  
+  .date-box .month{
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  
+
+  .card2{
+    filter: hue-rotate(150deg);
+  }
+
+  .card3{
+    filter: hue-rotate(300deg);
+  }
+
+  .card4{
+    filter: hue-rotate(90deg);
+  }
+
+  
+.month-icon {
+    width: 100%; /* Adjust the width as needed */
+    height: 100%; /* Adjust the height as needed */
+    /* Add any other styling properties */
+}
+
+#services-heading {
+    font-size: 2.4rem; /* Adjust the font size as needed */
+    font-family: Arial, sans-serif; /* Adjust the font family as needed */
+    /* Add any other styling properties */
+}
+
+#contact {
+    background-color: #000000; /* Black background color */
+    color: #fff; /* White text color */
+    padding: 100px 0; /* Adjust padding as needed */
+    text-align: center; /* Center-align content */
+  
+    overflow-x: hidden; /* Hide overflow to prevent scrollbars */
+
+}
+
+
+
+
+
+
+.contact-form {
+    position: relative;
+    top:-25vh;
+    left:15%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.034);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #e22626;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.contact-form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.contact-form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form .form-group:last-child {
+    margin-bottom: 0;
+}
+
+.matha-container {
+    text-align: left;
+    position:relative;
+    top:36%;
+    left:15rem;
+    z-index: 1000;
+  }
+  
+  .purplee-text {
+    font-size:5rem;
+    color: purple;
+  }
+  
+  .cyane-text {
+    font-size:5rem;
+    color: cyan;
+  }
+
+  .bblurry-circle {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(154, 4, 241, 0.596) 30%, rgba(0, 0, 0, 0) 70%);
+    position: relative;
+    top: -30%; /* Adjust position as needed */
+    left: 60%;
+    transform: translateX(-50%);
+    filter: blur(10rem); /* Apply blur effect to the circle */
+}
+
