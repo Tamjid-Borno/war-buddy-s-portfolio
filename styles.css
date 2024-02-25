@@ -1,68 +1,219 @@
+:root {
+    font-size: 16px;
+    font-family: 'Open Sans';
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e0c;
+    --bg-secondary: #14141841;
+    --transition-speed: 600ms;
+  }
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
 
-nav {
-    background-color: #000000; /* Dark purple background */
-    color: #fff; /* White text */
+body::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #1e1e24;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: #6649b8;
+  }
+  
+  main {
+    margin-left: 5rem;
+    padding: 1rem;
+  }
+  
+  .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    background-color: var(--bg-primary);
+    transition: width 600ms ease;
+    overflow: scroll;
     z-index: 1000;
-}
-
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
-
-h1 {
-    margin: 0;
-    background-image: linear-gradient(to right, blue, rgb(241, 4, 241), blue, purple); /* Linear gradient from blue to purple to cyan */
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent; /* Make text transparent to show the gradient */
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
+  }
+  
+  .navbar-nav {
+    list-style: none;
     padding: 0;
-}
-
-ul li {
-    display: inline-block;
-    margin-right: 20px;
-}
-
-ul li a {
-    color: #fff;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .nav-item {
+    width: 100%;
+  }
+  
+  .nav-item:last-child {
+    margin-top: auto;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: var(--text-primary);
     text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-ul li a:hover {
-    color: #ff00aa; /* Orange hover color */
-}
-
-.menu-toggle {
+    filter: grayscale(100%) opacity(0.7);
+    transition: var(--transition-speed);
+  }
+  
+  .nav-link:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+  }
+  
+  .link-text {
     display: none;
-    cursor: pointer;
-}
-
-.bar {
-    width: 25px;
-    height: 3px;
-    background-color: #ffffff00;
-    margin: 5px 0;
-}
-
-/* Styling for the hero section */
-
+    margin-left: 1rem;
+  }
+  
+  .nav-link svg {
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+  }
+  
+  .fa-primary {
+    color: #ff7eee;
+  }
+  
+  .fa-secondary {
+    color: #df49a6;
+  }
+  
+  .fa-primary,
+  .fa-secondary {
+    transition: var(--transition-speed);
+  }
+  
+  .logo {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    font-size: 1.5rem;
+    letter-spacing: 0.3ch;
+    width: 100%;
+  }
+  
+  .logo svg {
+    transform: rotate(0deg);
+    transition: var(--transition-speed);
+  }
+  
+  .logo-text
+  {
+    display: inline;
+    position: absolute;
+    left: -999px;
+    transition: var(--transition-speed);
+  }
+  
+  .navbar:hover .logo svg {
+    transform: rotate(-180deg);
+  }
+  
+  /* Small screens */
+  @media only screen and (max-width: 600px) {
+    .navbar {
+      bottom: 0;
+      width: 100vw;
+      height: 5rem;
+    }
+  
+    .logo {
+      display: none;
+    }
+  
+    .navbar-nav {
+      flex-direction: row;
+    }
+  
+    .nav-link {
+      justify-content: center;
+    }
+  
+    main {
+      margin: 0;
+    }
+  }
+  
+  /* Large screens */
+  @media only screen and (min-width: 600px) {
+    .navbar {
+      top: 0;
+      width: 5rem;
+      height: 100vh;
+    }
+  
+    .navbar:hover {
+      width: 16rem;
+    }
+  
+    .navbar:hover .link-text {
+      display: inline;
+    }
+  
+    .navbar:hover .logo svg
+    {
+      margin-left: 11rem;
+    }
+  
+    .navbar:hover .logo-text
+    {
+      left: 0px;
+    }
+  }
+  
+  .dark {
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+  }
+  
+  .light {
+    --text-primary: #1f1f1f;
+    --text-secondary: #000000;
+    --bg-primary: #ffffff;
+    --bg-secondary: #e4e4e4;
+  }
+  
+  .solar {
+    --text-primary: #576e75;
+    --text-secondary: #35535c;
+    --bg-primary: #fdf6e3;
+    --bg-secondary: #f5e5b8;
+  }
+  
+  .theme-icon {
+    display: none;
+  }
+  
+  .dark #darkIcon {
+    display: block;
+  }
+  
+  .light #lightIcon {
+    display: block;
+  }
+  
+  .solar #solarIcon {
+    display: block;
+  }
+  
 
 /* Styling for the hero section */
 .hero-section {
@@ -158,13 +309,13 @@ ul li a:hover {
 .headline-container {
     position: relative; /* Position the container absolutely */
     top: 100%; /* Position from the top */
-    left: 40%; /* Position from the left */
+    left: 20%; /* Position from the left */
     transform: translate(-50%, -50%); /* Center the container */
     text-align: center; /* Center-align text */
 }
 
 .headline {
-    font-size: 1.78rem; /* Adjust font size as needed */
+    font-size: 1.22rem; /* Adjust font size as needed */
     font-family: "Kode Mono", monospace;
     color: #fff; /* White text color */
     text-align: center; /* Center-align text */
@@ -353,8 +504,8 @@ ul li a:hover {
     width: 100%;
     max-width: 600px; /* Set a maximum width for better responsiveness */
     position: relative;
-    top: 5.22rem;
-    left: -50%;
+    top: -45.22rem;
+    left: -20%;
     margin: 0 auto; /* Center the card horizontally */
     text-align: center;
     opacity: 0;
@@ -485,11 +636,11 @@ ion-icon {
     padding: 20px;
     backdrop-filter: blur(5rem);
     height: 500px;
-    width: 100%;
+    width: 80%;
     max-width: 600px; /* Set a maximum width for better responsiveness */
     position: relative;
-    top: -30rem;
-    right: -25%; /* Changed from left to right */
+    top: -80.22rem;
+    right: -28%;
     margin: 0 auto; /* Center the card horizontally */
     text-align: center;
     opacity: 0;
@@ -834,9 +985,9 @@ li{ /*style the li tag*/
 .matha-container {
     text-align: left;
     position:relative;
-    top:36%;
-    left:15rem;
-    z-index: 1000;
+    top:20%;
+    left:9rem;
+    z-index: 999;
   }
   
   .purplee-text {
