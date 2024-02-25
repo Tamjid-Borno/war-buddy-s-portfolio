@@ -1,16 +1,25 @@
-// Smooth scrolling
+document.addEventListener("DOMContentLoaded", function() {
+    // Get all anchor links with class "nav-link"
+    var scrollLinks = document.querySelectorAll('a.nav-link');
 
-// Toggle the navigation menu on mobile devices
-document.getElementById('menu-toggle').addEventListener('click', function() {
-    var navMenu = document.querySelector('nav ul');
-    navMenu.classList.toggle('active');
-});
-
-// Close the navigation menu when a menu item is clicked
-document.querySelectorAll('nav ul li a').forEach(item => {
-    item.addEventListener('click', function() {
-        var navMenu = document.querySelector('nav ul');
-        navMenu.classList.remove('active');
+    // Loop through each anchor link
+    scrollLinks.forEach(function(scrollLink) {
+        // Listen for click event
+        scrollLink.addEventListener('click', function(event) {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+            
+            // Get the target section ID from the href attribute
+            var targetId = this.getAttribute('href').substring(1);
+            
+            // Find the target section by ID
+            var targetSection = document.getElementById(targetId);
+            
+            // Scroll to the target section smoothly
+            targetSection.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
     });
 });
 
@@ -26,50 +35,7 @@ document.addEventListener('mousemove', function(event) {
     blurredCircle.style.top = mouseY + 'px';
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.nav-link');
 
-    // Add click event listeners to each navigation link
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default behavior of the link
-            const targetId = this.getAttribute('href'); // Get the href attribute of the clicked link
-
-            // Change the URL hash without reloading the page
-            history.pushState(null, null, targetId);
-
-            // Scroll to the target section smoothly
-            document.querySelector(targetId).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const homeButton = document.querySelector('.nav-link[href="#home"]');
-
-    homeButton.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent the default behavior of the link
-
-        // Check if the user has scrolled to the "Home" section
-        const homeSection = document.getElementById('home');
-        const homeSectionRect = homeSection.getBoundingClientRect();
-        const isHomeSectionVisible = homeSectionRect.top >= 0 && homeSectionRect.bottom <= window.innerHeight;
-
-        // If the "Home" section is visible, activate the animations and reload the page
-        if (isHomeSectionVisible) {
-            // Activate the animations
-            activateAnimations();
-
-            // Reload the page after a short delay
-            setTimeout(function() {
-                window.location.reload();
-            }, 100); // Adjust the delay as needed
-        }
-    });
-});
 
 function activateAnimations() {
     // Activate the primary and secondary buttons animation
@@ -152,3 +118,27 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', checkScroll);
     checkScroll(); // Check the initial scroll position
 });
+
+const themeMap = {
+    dark: "light",
+    light: "solar",
+    solar: "dark"
+  };
+  
+  const theme = localStorage.getItem('theme')
+    || (tmp = Object.keys(themeMap)[0],
+        localStorage.setItem('theme', tmp),
+        tmp);
+  const bodyClass = document.body.classList;
+  bodyClass.add(theme);
+  
+  function toggleTheme() {
+    const current = localStorage.getItem('theme');
+    const next = themeMap[current];
+  
+    bodyClass.replace(current, next);
+    localStorage.setItem('theme', next);
+  }
+  
+  document.getElementById('themeButton').onclick = toggleTheme;
+  
